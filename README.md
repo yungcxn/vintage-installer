@@ -1,2 +1,5 @@
 # vintage-installer
-vintage installer using cpp (win-based)
+
+download and execute
+
+(using libcurl + nlohmann's json lib)
