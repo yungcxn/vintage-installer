@@ -150,18 +150,17 @@ int main() {
 	lpf >> j;
 
 	boolean found = false;
-	for (auto it : j["profiles"]) {
-		if (it["lastVersionId"] == "vintage") {
+	for (auto it : j) {
+		if (it == "vintage") {
 			found = true;
 			cout << "launcher profile found... ending " << endl;
 		}
 	}
 
 	if (!found) {
-		j["profiles"]["1d5c2b3d200f5c1a8432b67f1be2f56f"] = {
+		j["profiles"]["vintage"] = {
 			{"created", "2021-01-01T00:00:00.000Z"},
 			{"icon" , "Carved_Pumpkin"},
-			{"javaArgs" , "-Xmx4G -Xms4G -Xmn3072m -XX:+DisableExplicitGC -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+UseNUMA -XX:+CMSParallelRemarkEnabled -XX:MaxGCPauseMillis=30 -XX:GCPauseIntervalMillis=150 -XX:+UseAdaptiveGCBoundary -XX:-UseGCOverheadLimit -XX:+UseBiasedLocking -XX:SurvivorRatio=8 -XX:TargetSurvivorRatio=90 -XX:MaxTenuringThreshold=15 -Dfml.ignorePatchDiscrepancies=true -Dfml.ignoreInvalidMinecraftCertificates\u037dtrue -XX:+UseFastAccessorMethods -XX:+UseCompressedOops -XX:+OptimizeStringConcat -XX:+AggressiveOpts -XX:ReservedCodeCacheSize=2048M -XX:+UseCodeCacheFlushing -XX:SoftRefLRUPolicyMSPerMB=20000 -XX:ParallelGCThreads=10"},
 			{"lastUsed" , "2020-01-01T00:00:00.000Z"},
 			{"lastVersionId", "vintage"},
 			{"name" , "vintage"},
@@ -184,7 +183,7 @@ int main() {
 	}
 	
 
-	j["profiles"]["1d5c2b3d200f5c1a8432b67f1be2f56f"]["icon"] = content;
+	j["profiles"]["vintage"]["icon"] = content;
 	cout << "updated berins face for launcher profile... " << endl;
 
 	ofstream o(pathtolauncherprof);
